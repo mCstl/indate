@@ -11,6 +11,22 @@ apt-get install python-httplib2 -y
 apt-get install python3-httplib2 -y
 apt-get install python-http-parser -y
 pip install --upgrade pip
+apt-add-repository ppa:brightbox/ruby-ng
+apt-get update
+apt-get install ruby2.5 ruby2.5-dev -y
+echo 
+echo
+echo '_______________________________________'
+echo '   версия ruby должна быть: 2.5.1p57'
+echo '   версия gem должна быть 2.7.6'
+echo '---------------------------------------'
+echo
+ruby2.5 -v
+gem2.5 -v
+echo '_______________________________________'
+echo 
+echo 'press enter'
+read
 apt-get update -y && apt-get dist-upgrade -y
 
 echo '_______________________________________'
