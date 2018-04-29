@@ -27,17 +27,18 @@ echo '_______________________________________'
 echo 
 echo 'press enter'
 read
-apt-get update -y && apt-get dist-upgrade -y
-
+gem install jekyll bundler
+jekyll new blog
+cd ~/blog
+bundle update
+apt remove wpscan -y
+apt update -y 
+apt dist-upgrade -y
+apt install wpscan -y
 echo '_______________________________________'
 echo
 echo '---------------------------------------'
 echo '_______________________________________'
-apt-get update -y
-echo '---------------------------------------'
-apt-get dist-upgrade -y
-echo '---------------------------------------'
-
 pip install --update
 pip3 install --update
 echo 'установка зависимостей SSH'
