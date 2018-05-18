@@ -101,3 +101,4 @@ echo " обновление модулей"
 echo '---------------------------------------'
  python -m pip install cx_Oracle --upgrade
  easy_install pip==7.1.2
+nano /etc/proxychains.conf
