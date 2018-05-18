@@ -101,4 +101,14 @@ echo " обновление модулей"
 echo '---------------------------------------'
  python -m pip install cx_Oracle --upgrade
  easy_install pip==7.1.2
-nano /etc/proxychains.conf
+apt remove proxychains -y
+cd /opt/
+git clone https://github.com/rofl0r/proxychains-ng.git
+cd proxychains-ng/
+chmod 777 ./configure
+bash ./configure --prefix=/usr --sysconfdir=/etc
+make && make install
+make install-config
+./tools/install.sh -D -m 644 src/proxychains.conf /etc/proxychains.conf
+./tools/install.sh -D -m 644 libproxychains4.so /usr/lib/libproxychains4.so
+./tools/install.sh -D -m 755 proxychains4 /usr/bin/proxychains4
