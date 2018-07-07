@@ -1,40 +1,40 @@
 #!/bin/bash
 
 add-apt-repository ppa:jonathonf/python-3.6
-apt-get update
-apt-get install python2.7-dev -y
-apt-get install python3.6 -y
-apt-get install python3.6-dev -y
+apt-add-repository ppa:brightbox/ruby-ng
+apt update
+apt dist-upgrade -y
+apt install python2.7-dev -y
+apt install python3.6 -y
+apt install python3.6-dev -y
 apt install python-pip -y
 apt install python3-pip -y
-apt-get install python-httplib2 -y
-apt-get install python3-httplib2 -y
-apt-get install python-http-parser -y
+apt install python-httplib2 -y
+apt install python3-httplib2 -y
+apt install python-http-parser -y
 pip install --upgrade pip
-apt-add-repository ppa:brightbox/ruby-ng
-apt-get update
-apt-get install ruby2.5 ruby2.5-dev -y
-echo 
+#apt install ruby2.5 ruby2.5-dev -y
+#echo 
 echo
-echo '_______________________________________'
-echo '   версия ruby должна быть: 2.5.1p57'
-echo '   версия gem должна быть 2.7.6'
-echo '---------------------------------------'
-echo
-ruby2.5 -v
-gem2.5 -v
-echo '_______________________________________'
-echo 
-echo 'press enter'
-read
-gem install jekyll bundler
-jekyll new blog
-cd ~/blog
-bundle update
-apt remove wpscan -y
-apt update -y 
-apt dist-upgrade -y
-apt install wpscan -y
+#echo '_______________________________________'
+#echo '   версия ruby должна быть: 2.5.1p57'
+#echo '   версия gem должна быть 2.7.6'
+#echo '---------------------------------------'
+#echo
+#ruby2.5 -v
+#gem2.5 -v
+#echo '_______________________________________'
+#echo 
+#echo 'press enter'
+#read
+#gem install jekyll bundler
+#jekyll new blog
+#cd ~/blog
+#bundle update
+#apt remove wpscan -y
+#apt update -y 
+#apt dist-upgrade -y
+#apt install wpscan -y
 echo '_______________________________________'
 echo
 echo '---------------------------------------'
@@ -105,7 +105,7 @@ apt remove proxychains -y
 cd /opt/
 git clone https://github.com/rofl0r/proxychains-ng.git
 cd proxychains-ng/
-chmod 777 ./configure
+chmod 775 ./configure
 bash ./configure --prefix=/usr --sysconfdir=/etc
 make && make install
 make install-config
