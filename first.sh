@@ -11,3 +11,4 @@ echo 'press [ENTER]'
 read ok
 nano /etc/default/grub
 update-grub
+msfdb init
