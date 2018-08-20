@@ -1,5 +1,99 @@
 #!/bin/bash
 
+echo ""
+echo "  __  __   _   ___    ___ _                        "
+echo " |  \/  | /_\ / __|  / __| |_  __ _ _ _  __ _ ___  "
+echo " | |\/| |/ _ \ (__  | (__| ' \/ _' | ' \/ _' / -_) "
+echo " |_|  |_/_/ \_\___|  \___|_||_\__,_|_||_\__, \___| "
+echo "                                        |___/      "
+echo ""
+echo ''
+echo 'copy this: '
+echo ''
+echo '####################################'
+echo ''
+echo '[main]'
+echo 'plugins=ifupdown,keyfile,ofono'
+echo 'dns=dnsmasq'
+echo ''
+echo '[ifupdown]'
+echo 'managed=false'
+echo ''
+echo '[connection]'
+echo 'wifi.cloned-mac-address=random'
+echo ''
+echo '[connection]'
+echo 'ethernet.cloned-mac-address=random'
+echo ''
+echo '####################################'
+echo ''
+echo 'press [ENTER]'
+read ok
+nano /etc/NetworkManager/NetworkManager.conf
+echo ''
+echo ""
+echo "  ___ ___ _  _                __ _          " 
+echo " / __/ __| || |  __ ___ _ _  / _(_)__ _ ___ "
+echo " \__ \__ \ __ | / _/ _ \ ' \|  _| / _' (_-< "
+echo " |___/___/_||_| \__\___/_||_|_| |_\__, /__/ "
+echo "                                  |___/     "
+echo ""
+update-rc.d -f ssh remove
+update-rc.d -f ssh defaults
+cd /etc/ssh/
+mkdir insecure_origin_keys
+mv ssh_host_* insecure_origin_keys/
+dpkg-reconfigure openssh-server
+echo ''
+echo '####################################'
+echo ''
+echo 'change port from 22 on other'
+echo 'PermitRootLogin no'
+echo ''
+echo '####################################'
+echo ''
+echo 'press [ENTER]'
+read ok
+nano /etc/ssh/sshd_config
+echo ''
+echo ""
+echo "   ___ ___ _   _ ___   _____ _                    _    "
+echo "  / __| _ \ | | | _ ) |_   _(_)_ __  ___ ___ _  _| |_  "
+echo " | (_ |   / |_| | _ \   | | | | '  \/ -_) _ \ || |  _| "
+echo "  \___|_|_\\\___/|___/   |_| |_|_|_|_\___\___/\_,_|\__| "
+echo ""
+echo ''
+echo '####################################'
+echo ''
+echo 'next /etc/default/grub will be open, change GRUB_TIMEOUT to 0'
+echo ''
+echo '####################################'
+echo ''
+echo 'press [ENTER]'
+read ok
+nano /etc/default/grub
+update-grub
+echo ''
+echo '####################################'
+echo ''
+echo 'HISTSIZE=6'
+echo 'HISTFILESIZE=6'
+echo ''
+echo '####################################'
+echo ''
+echo 'press [ENTER]'
+read ok
+nano ~/.bashrc
+##
+#chattr +i /etc/resolv.conf add DNS
+##
+echo ""
+echo "  ___                   _      _    _  "
+echo " | _ \___ _ __  ___    /_\  __| |__| | "
+echo " |   / -_) '_ \/ _ \  / _ \/ _` / _` | "
+echo " |_|_\___| .__/\___/ /_/ \_\__,_\__,_| "
+echo "         |_|                           "
+echo ""
 add-apt-repository ppa:jonathonf/python-3.6
 apt-add-repository ppa:brightbox/ruby-ng
 apt update
@@ -41,66 +135,73 @@ echo '---------------------------------------'
 echo '_______________________________________'
 pip install --update
 pip3 install --update
-echo 'установка зависимостей SSH'
+echo 'creating dependencies SSH'
  apt install python-paramiko -y
 echo '---------------------------------------'
-echo 'установка зависимостей HTTP'
+echo 'creating dependencies HTTP'
  apt install python-pycurl curl -y
 echo '---------------------------------------'
-echo "установка зависимостей AJP"
+echo "creating dependencies AJP"
  pip install ajpy
 echo '---------------------------------------'
-echo "установка зависимостей LDAP"
+echo "creating dependencies LDAP"
  apt install libldap-2.4-2 -y
 echo '---------------------------------------'
-echo"установка зависимостей SMB"
+echo"creating dependencies SMB"
  apt install python-impacket -y
 echo '---------------------------------------'
-echo "установка зависимостей Oracle"
+echo "creating dependencies Oracle"
  python -m pip install cx_Oracle --upgrade
 echo '---------------------------------------'
-echo "установка зависимостей MySQL"
+echo "creating dependencies MySQL"
  apt install python-mysqldb -y
 echo '---------------------------------------'
-echo "установка зависимостей RDP (NLA)"
+echo "creating dependencies RDP (NLA)"
  apt install freerdp2-x11 -y
 echo '---------------------------------------'
-echo "установка зависимостей PostgreSQL"
+echo "creating dependencies PostgreSQL"
  apt install python-psycopg2 -y
 echo '---------------------------------------'
-echo "установка зависимостей VNC"
+echo "creating dependencies VNC"
  apt install python-crypto -y
 echo '---------------------------------------'
-echo "установка зависимостей DNS"
+echo "creating dependencies DNS"
  apt install python-dns -y
 echo '---------------------------------------'
-echo "установка зависимостей NET keyword"
+echo "creating dependencies NET keyword"
  apt install python-ipy -y
 echo '---------------------------------------'
-echo "установка зависимостей SNMP"
+echo "creating dependencies SNMP"
  apt install python-pyasn1 python-pysnmp4 -y
 echo '---------------------------------------'
-echo "установка зависимостей IKE"
+echo "creating dependencies IKE"
  apt install ike-scan -y
 echo '---------------------------------------'
-echo "ZIP пароли"
+echo "ZIP pass"
  apt install unzip -y
 echo '---------------------------------------'
-echo "keystore файлы"
+echo "keystore files"
  apt install default-jre -y
 echo '---------------------------------------'
-echo "установка зависимостей SQLCipher"
+echo "creating dependencies SQLCipher"
  apt install libsqlite3-dev libsqlcipher-dev -y
  pip install pysqlcipher
 echo '_______________________________________'
 echo
 echo '---------------------------------------'
 echo '_______________________________________'
-echo " обновление модулей"
+echo "creating dependencies pysqlcipher ajpy"
  pip install pysqlcipher ajpy
 echo '---------------------------------------'
- python -m pip install cx_Oracle --upgrade
- easy_install pip==7.1.2
+python -m pip install cx_Oracle --upgrade
+easy_install pip==7.1.2
+echo ""
+echo "  ___                     _         _                 _  _  ___  "
+echo " | _ \_ _ _____ ___  _ __| |_  __ _(_)_ _  ___  ___  | \| |/ __| "
+echo " |  _/ '_/ _ \ \ / || / _| ' \/ _' | | ' \(_-< |___| | .' | (_ | "
+echo " |_| |_| \___/_\_\\\_, \__|_||_\__,_|_|_||_/__/       |_|\_|\___| "
+echo "                  |__/                                           "
+echo ""
 apt remove proxychains -y
 cd /opt/
 git clone https://github.com/rofl0r/proxychains-ng.git
