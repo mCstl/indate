@@ -136,62 +136,65 @@ echo '_______________________________________'
 pip install --update
 pip3 install --update
 echo 'creating dependencies SSH'
- apt install python-paramiko -y
+apt install python-paramiko -y
 echo '---------------------------------------'
 echo 'creating dependencies HTTP'
- apt install python-pycurl curl -y
+apt install python-pycurl curl -y
 echo '---------------------------------------'
 echo "creating dependencies AJP"
- pip install ajpy
+pip install ajpy
 echo '---------------------------------------'
 echo "creating dependencies LDAP"
- apt install libldap-2.4-2 -y
+apt install libldap-2.4-2 -y
 echo '---------------------------------------'
 echo"creating dependencies SMB"
- apt install python-impacket -y
+apt install python-impacket -y
 echo '---------------------------------------'
 echo "creating dependencies Oracle"
- python -m pip install cx_Oracle --upgrade
+python -m pip install cx_Oracle --upgrade
 echo '---------------------------------------'
 echo "creating dependencies MySQL"
- apt install python-mysqldb -y
+apt install python-mysqldb -y
 echo '---------------------------------------'
 echo "creating dependencies RDP (NLA)"
- apt install freerdp2-x11 -y
+apt install freerdp2-x11 -y
 echo '---------------------------------------'
 echo "creating dependencies PostgreSQL"
- apt install python-psycopg2 -y
+apt install python-psycopg2 -y
 echo '---------------------------------------'
 echo "creating dependencies VNC"
- apt install python-crypto -y
+apt install python-crypto -y
 echo '---------------------------------------'
 echo "creating dependencies DNS"
- apt install python-dns -y
+apt install python-dns -y
 echo '---------------------------------------'
 echo "creating dependencies NET keyword"
- apt install python-ipy -y
+apt install python-ipy -y
 echo '---------------------------------------'
 echo "creating dependencies SNMP"
- apt install python-pyasn1 python-pysnmp4 -y
+apt install python-pyasn1 python-pysnmp4 -y
 echo '---------------------------------------'
 echo "creating dependencies IKE"
- apt install ike-scan -y
+apt install ike-scan -y
 echo '---------------------------------------'
 echo "ZIP pass"
- apt install unzip -y
+apt install unzip -y
 echo '---------------------------------------'
 echo "keystore files"
- apt install default-jre -y
+apt install default-jre -y
 echo '---------------------------------------'
 echo "creating dependencies SQLCipher"
- apt install libsqlite3-dev libsqlcipher-dev -y
- pip install pysqlcipher
+apt install libsqlite3-dev libsqlcipher-dev -y
+pip install pysqlcipher
+echo '---------------------------------------'
+echo "installing libxslt"
+aptinstall libxml2-dev libxslt-dev
 echo '_______________________________________'
 echo
 echo '---------------------------------------'
 echo '_______________________________________'
 echo "creating dependencies pysqlcipher ajpy"
- pip install pysqlcipher ajpy
+pip install pysqlcipher ajpy
 echo '---------------------------------------'
 python -m pip install cx_Oracle --upgrade
 easy_install pip==7.1.2
