@@ -4,6 +4,11 @@
 #add-apt-repository ppa:jonathonf/python-3.6
 apt update -y
 #apt dist-upgrade -y
+#gem install bundler
+#bundle init
+#bundle add rspec
+#bundle install
+#bundle exec rspec
 #apt install python2.7-dev -y
 #apt install python3.6 -y
 #apt install python3.6-dev -y
